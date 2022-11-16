@@ -65,13 +65,9 @@ contract NFT is ERC721Enumerable, Ownable {
         return baseURI;
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        virtual
-        override
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
         require(_exists(tokenId), "Nonexistent token");
 
         return string(abi.encodePacked(baseURI, "/", tokenId, ".json"));
@@ -99,12 +95,10 @@ contract NFT is ERC721Enumerable, Ownable {
     }
 
     // FUNCTION FOR MINTING
-    function mint(uint256 numberOfTokens, address userAddress)
-        external
-        mintEnabled
-        onlyOwner
-        canMintTokens(numberOfTokens)
-    {
+    function mint(
+        uint256 numberOfTokens,
+        address userAddress
+    ) external mintEnabled onlyOwner canMintTokens(numberOfTokens) {
         for (uint256 i = 0; i < numberOfTokens; i++) {
             _safeMint(userAddress, increasedTokenId());
         }

@@ -34,12 +34,8 @@ export default {
       chainId: 1337,
       allowUnlimitedContractSize: false
     },
-    kovan: {
-      url: process.env.KOVAN_URL || defaultRpcUrl,
-      accounts: [process.env.PRIVATE_KEY || defaultKey]
-    },
-    rinkeby: {
-      url: process.env.RINKEBY_URL || defaultRpcUrl,
+    goerli: {
+      url: process.env.GOERLI_URL || defaultRpcUrl,
       accounts: [process.env.PRIVATE_KEY || defaultKey]
     },
     mainnet: {
@@ -54,7 +50,7 @@ export default {
   solidity: {
     compilers: [
       {
-        version: "0.8.4",
+        version: "0.8.16",
         settings: {
           optimizer: {
             enabled: false,

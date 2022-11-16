@@ -1,4 +1,4 @@
-import { deployContract } from "../utils";
+import { deployContract, verifyOnEtherscan } from "../utils";
 import { Token } from "../../../build/typechain";
 
 export const contractNames = () => ["token"];

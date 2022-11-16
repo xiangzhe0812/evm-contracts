@@ -1,4 +1,4 @@
-import { ethers, upgrades } from "hardhat";
+import hardhat, { ethers, upgrades } from "hardhat";
 import { ethers as tsEthers } from "ethers";
 import { getLedgerSigner } from "../utils";
 
@@ -112,4 +112,18 @@ export const getSignerForDeployer = async (): Promise<tsEthers.Signer> => {
       throw new Error(`Could not fetch signer for index ${deployerIndex}`);
   }
   return deployer;
+};
+
+export const verifyOnEtherscan = async (
+  contractAddress,
+  constructorArguments = []
+) => {
+  try {
+    await hardhat.run("verify:verify", {
+      address: contractAddress,
+      constructorArguments
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };

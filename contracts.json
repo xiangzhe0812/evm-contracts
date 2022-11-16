@@ -1,4 +1,7 @@
 {
-  "kovan": { },
-  "localhost": { } 
+  "kovan": {},
+  "localhost": {},
+  "goerli": {
+    "token": "0x3A64DccDaAE46a79077c5b909421e3065274F1fE"
+  }
 }
